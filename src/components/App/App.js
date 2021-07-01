@@ -1,33 +1,46 @@
 import React from 'react';
 import './App.css';
 import StudentList from '../Students/StudentList.js';
+import Search from '../Search/Search.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      students: []
+      students: [],
+      searchField: '',
     }
   }
 
+
   componentDidMount() {
     fetch('https://api.hatchways.io/assessment/students')
-    .then(response => response.json())
-    .then(data => this.setState({ students: data }));
+    .then(response => {return response.json()})
+    .then(data => {
+        this.setState({ students: data })
+    });
+  }
+
+  onSearchChange = (event) => {
+    this.setState({ searchField: event.target.value });
   }
 
   render() {
-    let {students} = this.state;
+    const {students, searchField} = this.state;
+    const filteredStudents = students.filter(student => {
+      return student.concat(student.firstName, ' ', student.lastName).toLowerCase().includes(searchField.toLowerCase());
+    })
 
-    console.log(students)
-    return (
-      <div className="App">
-        <div className='student-container'>
-          <StudentList students={students} />
+    return !students ? <h1>Loading...</h1> :
+      (
+        <div className="App">
+          <div className='student-container'>
+            <Search searchChange={this.onSearchChange} />
+            <StudentList students={filteredStudents} />
+          </div>
         </div>
-      </div>
-    );
+      );
   }
 }
 

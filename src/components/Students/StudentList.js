@@ -1,19 +1,12 @@
 import React from 'react';
-import StudentCard from './StudentCard.js'
+import StudentCard from './StudentCard.js';
+import Search from '../Search/Search.js';
 import './Students.css';
 
 const StudentList = (props) => {
   let {students} = props.students;
   console.log(students);
-  if(students === undefined) {
-    return(
-      <div>
-        loading...
-      </div>
-    )
-  }
-  else {
-    return(
+    return (
       <div className='student-list' id='style'>
         {students.map(student => <StudentCard
           city={student.city}
@@ -29,7 +22,6 @@ const StudentList = (props) => {
           )}
       </div>
     )
-  }
 }
 
 export default StudentList;
