@@ -14,13 +14,13 @@ class App extends React.Component {
   componentDidMount() {
     fetch('https://api.hatchways.io/assessment/students')
     .then(response => response.json())
-    .then(data => this.setState({ students: data}));
-    console.log(this.students)
+    .then(data => this.setState({ students: data }));
   }
 
   render() {
     let {students} = this.state;
 
+    console.log(students)
     return (
       <div className="App">
        <StudentList students={students} />

@@ -1,11 +1,32 @@
 import React from 'react';
 
-const StudentList = () => {
+const StudentCard = (props) => {
+  let { city, company, email, firstName, grades, id, lastName, pic, skill } = props;
   return(
-    <div>
-      test
+    <div className='student-card'>
+      <div className='student-image'>
+        <img src={pic} alt='' />
+      </div>
+      <div className='student-name'>
+        <p>
+          {firstName}
+          {lastName}
+        </p>
+      </div>
+      <div className='student-email'>
+        Email:{email}
+      </div>
+      <div className='student-company'>
+        {company}
+      </div>
+      <div className='student-skill'>
+        {skill}
+      </div>
+      <div className="student-grade">
+        Average: {(grades.map(grade => parseInt(grade)).reduce((acc, curr) => acc + curr) / grades.length)}%
+      </div>
     </div>
   )
 }
 
-export default StudentList;
+export default StudentCard;
