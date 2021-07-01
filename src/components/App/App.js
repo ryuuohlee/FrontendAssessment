@@ -23,7 +23,9 @@ class App extends React.Component {
     console.log(students)
     return (
       <div className="App">
-       <StudentList students={students} />
+        <div className='student-container'>
+          <StudentList students={students} />
+        </div>
       </div>
     );
   }

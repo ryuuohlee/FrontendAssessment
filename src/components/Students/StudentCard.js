@@ -1,7 +1,7 @@
 import React from 'react';
 
 const StudentCard = (props) => {
-  let { city, company, email, firstName, grades, id, lastName, pic, skill } = props;
+  let { company, email, firstName, grades, lastName, pic, skill } = props;
   return(
     <div className='student-card'>
       <div className='student-image'>

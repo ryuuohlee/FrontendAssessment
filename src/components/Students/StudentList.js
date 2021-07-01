@@ -1,5 +1,6 @@
 import React from 'react';
 import StudentCard from './StudentCard.js'
+import './Students.css';
 
 const StudentList = (props) => {
   let {students} = props.students;
@@ -13,7 +14,7 @@ const StudentList = (props) => {
   }
   else {
     return(
-      <div className='student-list'>
+      <div className='student-list' id='style'>
         {students.map(student => <StudentCard
           city={student.city}
           company={student.company}
