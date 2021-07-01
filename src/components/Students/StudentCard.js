@@ -5,25 +5,26 @@ const StudentCard = (props) => {
   return(
     <div className='student-card'>
       <div className='student-image'>
-        <img src={pic} alt='' />
+        <img className='student-pic' src={pic} alt='' />
       </div>
-      <div className='student-name'>
-        <p>
-          {firstName}
-          {lastName}
-        </p>
-      </div>
-      <div className='student-email'>
-        Email:{email}
-      </div>
-      <div className='student-company'>
-        {company}
-      </div>
-      <div className='student-skill'>
-        {skill}
-      </div>
-      <div className="student-grade">
-        Average: {(grades.map(grade => parseInt(grade)).reduce((acc, curr) => acc + curr) / grades.length)}%
+      <div className="student-info">
+        <h1 className='student-name'>
+            {firstName} {lastName}
+        </h1>
+        <div className="student-stats">
+          <div className='student-email'>
+            Email: {email}
+          </div>
+          <div className='student-company'>
+            Company: {company}
+          </div>
+          <div className='student-skill'>
+            Skill: {skill}
+          </div>
+          <div className="student-grade">
+            Average: {(grades.map(grade => parseInt(grade)).reduce((acc, curr) => acc + curr) / grades.length)}%
+          </div>
+        </div>
       </div>
     </div>
   )
