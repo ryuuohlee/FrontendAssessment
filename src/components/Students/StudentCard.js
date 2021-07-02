@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Grades from '../Grades/Grades.js';
 
 const StudentCard = (props) => {
-  let { company, email, firstName, grades, lastName, pic, skill } = props;
+  let { company, email, firstName, grades, lastName, pic, skill, id} = props;
+  let test = 1;
+  let [isActive, setActive] = useState(false);
   return(
     <div className='student-card'>
       <div className='student-image'>
@@ -24,7 +27,17 @@ const StudentCard = (props) => {
           <div className="student-grade">
             Average: {(grades.map(grade => parseInt(grade)).reduce((acc, curr) => acc + curr) / grades.length)}%
           </div>
+          {isActive && <div>{grades.map(grade =>
+            <Grades grade={grade} test={test} key={id}/>
+          )} </div>}
         </div>
+      </div>
+      <div className='accordion'>
+        <button
+        className='accordion-button'
+        onClick={()=>setActive(!isActive)}>
+          {isActive ? '-' : '+'}
+        </button>
       </div>
     </div>
   )

@@ -4,12 +4,10 @@ import Search from '../Search/Search.js';
 import './Students.css';
 
 const StudentList = (props) => {
-  const {students} = props;
-  console.log(students);
+  const {students, showGrades, onOpen} = props;
     return (
       <div className='student-list' id='style'>
         {students.map(student => <StudentCard
-          city={student.city}
           company={student.company}
           email={student.email}
           firstName={student.firstName}
@@ -18,6 +16,8 @@ const StudentList = (props) => {
           lastName={student.lastName}
           pic={student.pic}
           skill={student.skill}
+          showGrades={showGrades}
+          onOpen={onOpen}
           key={student.id} />
           )}
       </div>

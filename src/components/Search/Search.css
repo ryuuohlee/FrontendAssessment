@@ -1,12 +1,14 @@
 .search-bar-container {
-  width: 100%;
+  width: 97%;
   position: absolute;
-  margin-left: 10px;
+  padding-left: 10px;
   margin-right: 10px;
+  background-color: white;
+  border-top-left-radius: 10px;
 }
 
 .search-bar {
-  width: 97%;
+  width: 100%;
   font-size: x-large;
   line-height: 2;
   border: 0px;

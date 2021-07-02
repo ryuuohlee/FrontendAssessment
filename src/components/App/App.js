@@ -10,9 +10,9 @@ class App extends React.Component {
     this.state = {
       students: [],
       searchField: '',
+      isActive: false
     }
   }
-
 
   componentDidMount() {
     fetch('https://api.hatchways.io/assessment/students')
@@ -27,8 +27,13 @@ class App extends React.Component {
     this.setState({ searchField: event.target.value });
   }
 
+  onOpen = () => {
+    this.setState({ isActive: !this.state.isActive });
+    console.log(this.state.isActive)
+  }
+
   render() {
-    const {students, searchField} = this.state;
+    const {students, searchField, isActive} = this.state;
     const filteredStudents = (!!(students.filter(student => {
       return student.firstName.concat(' ', student.lastName).toLowerCase().includes(searchField.toLowerCase())})) ? students.filter(student => {
       return student.firstName.concat(' ', student.lastName).toLowerCase().includes(searchField.toLowerCase())}) : students);
@@ -37,7 +42,7 @@ class App extends React.Component {
         <div className="App">
           <div className='student-container'>
             <Search searchChange={this.onSearchChange} />
-            <StudentList students={filteredStudents} />
+            <StudentList students={filteredStudents} showGrades={isActive} onOpen={this.onOpen} />
           </div>
         </div>
       );
