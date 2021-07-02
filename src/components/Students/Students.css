@@ -41,10 +41,18 @@
 /*Card style*/
 .student-card {
   display: flex;
+  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  width: 95%;
   padding: 10px;
   margin-top: 20px;
   border-bottom: 1px solid lightgray;
+}
+
+.student-data {
+  display: flex;
+  flex-direction: row;
 }
 
 .student-image {
@@ -80,15 +88,23 @@
   margin-bottom: 20px;
 }
 
-.accordion-button {
-  position: relative;
-  float: right;
-  color: gray;
-  top: 0px;
+.accordion {
   height: 100%;
-  width: auto;
-  font-size: 150px;
+
+}
+
+.accordion-button {
+  text-align: end;
+  vertical-align: top !important;
+  color: gray;
+  width: 100%;
+  margin-top: -30px;
+  font-size: 75px;
   font-weight: 700;
   background-color: transparent;
   border: none;
+}
+
+.test-scores {
+  margin-bottom: 10px;
 }

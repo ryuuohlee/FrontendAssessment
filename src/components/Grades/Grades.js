@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Grades = ({ grade }) => {
-  let test = 1;
+const Grades = ({ grade, test }) => {
   return (
       <div>Test {test}: {grade}%</div>
             )
