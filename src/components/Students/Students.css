@@ -108,3 +108,19 @@
 .test-scores {
   margin-bottom: 10px;
 }
+
+/*Add Tag Bar*/
+.add-tag {
+  width: 50%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: large;
+  line-height: 2;
+  border: 0px;
+  border-bottom: 1px solid lightgray;
+}
+
+.add-tag:focus {
+  outline: none;
+  border-bottom: 1px solid black;
+}

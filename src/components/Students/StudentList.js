@@ -3,7 +3,7 @@ import StudentCard from './StudentCard.js';
 import './Students.css';
 
 const StudentList = (props) => {
-  const {students, showGrades, onOpen} = props;
+  const {students, showGrades, onSubmit} = props;
     return (
       <div className='student-list' id='style'>
         {students.map(student => <StudentCard
@@ -16,7 +16,7 @@ const StudentList = (props) => {
           pic={student.pic}
           skill={student.skill}
           showGrades={showGrades}
-          onOpen={onOpen}
+          onSubmit={onSubmit}
           key={student.id} />
           )}
       </div>

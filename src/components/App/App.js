@@ -11,8 +11,7 @@ class App extends React.Component {
       students: [],
       tags:[["tag1", "tag2"]],
       searchField: '',
-      tagSearchField: '',
-      isActive: false
+      tagSearchField: ''
     }
   }
 
@@ -33,13 +32,12 @@ class App extends React.Component {
     this.setState({ tagSearchField: event.target.value });
   }
 
-  onOpen = () => {
-    this.setState({ isActive: !this.state.isActive });
-    console.log(this.state.isActive)
+  onSubmit = (event) => {
+    console.log(event);
   }
 
   render() {
-    const {students, tags, searchField, tagSearchField, isActive} = this.state;
+    const {students, tags, searchField, tagSearchField} = this.state;
     const filteredStudents = (!!(students.filter(student => {
       return student.firstName.concat(' ', student.lastName).toLowerCase().includes(searchField.toLowerCase())})) ? students.filter(student => {
       return student.firstName.concat(' ', student.lastName).toLowerCase().includes(searchField.toLowerCase())}) : students);
@@ -52,7 +50,7 @@ class App extends React.Component {
         <div className="App">
           <div className='student-container'>
             <Search searchChange={this.onSearchChange} tagSearchChange={this.onTagSearchChange}/>
-            <StudentList students={filteredStudents} showGrades={isActive} onOpen={this.onOpen} />
+            <StudentList students={filteredStudents} onSubmit={this.onSubmit} />
           </div>
         </div>
       );

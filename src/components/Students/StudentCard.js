@@ -2,9 +2,11 @@ import React, {useState} from 'react';
 import Grades from '../Grades/Grades.js';
 
 const StudentCard = (props) => {
-  let { company, email, firstName, grades, lastName, pic, skill, id} = props;
+  let { company, email, firstName, grades, lastName, pic, skill, id, onSubmit} = props;
   let test = 1;
   let [isActive, setActive] = useState(false);
+  let [tag, setTag] = useState('')
+
   return(
     <div className='student-card'>
       <div className='student-data'>
@@ -31,6 +33,12 @@ const StudentCard = (props) => {
             {isActive && <div className='test-scores'>{grades.map((grade) =>
               <Grades grade={grade} test={test++} key={id.concat(firstName,lastName)}/>
             )} </div>}
+            <input
+              className='add-tag'
+              type='text'
+              placeholder='Add Tag'
+              onSubmit={()=>onSubmit}
+               />
           </div>
         </div>
       </div>
