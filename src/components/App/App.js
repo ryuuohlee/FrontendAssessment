@@ -18,8 +18,9 @@ class App extends React.Component {
     fetch('https://api.hatchways.io/assessment/students')
     .then(response => {return response.json()})
     .then(data => {
-        this.setState({ students: data })
-    });
+        this.setState({ students: data.students })
+    })
+    .catch(error => console.log(error));
   }
 
   onSearchChange = (event) => {
@@ -29,11 +30,10 @@ class App extends React.Component {
   render() {
     const {students, searchField} = this.state;
     const filteredStudents = students.filter(student => {
-      return student.concat(student.firstName, ' ', student.lastName).toLowerCase().includes(searchField.toLowerCase());
+      return student.firstName.concat(' ', student.lastName).toLowerCase().includes(searchField.toLowerCase());
     })
 
-    return !students ? <h1>Loading...</h1> :
-      (
+    return students.length === 0 ? <h1>Loading...</h1> : (
         <div className="App">
           <div className='student-container'>
             <Search searchChange={this.onSearchChange} />
