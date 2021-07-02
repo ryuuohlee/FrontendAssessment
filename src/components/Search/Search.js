@@ -1,7 +1,7 @@
 import React from 'react';
 import './Search.css';
 
-const Search = ({ searchfield, searchChange }) => {
+const Search = ({ tagSearchChange, searchChange }) => {
   return (
     <div className='search-bar-container'>
       <input
@@ -9,6 +9,12 @@ const Search = ({ searchfield, searchChange }) => {
         type='search'
         placeholder='Search by Name'
         onChange={searchChange} />
+
+      <input
+        className='search-bar tag'
+        type='search'
+        placeholder='Search by Tag'
+        onChange={tagSearchChange} />
     </div>
   )
 }

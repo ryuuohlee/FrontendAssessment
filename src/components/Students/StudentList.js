@@ -1,6 +1,5 @@
 import React from 'react';
 import StudentCard from './StudentCard.js';
-import Search from '../Search/Search.js';
 import './Students.css';
 
 const StudentList = (props) => {
