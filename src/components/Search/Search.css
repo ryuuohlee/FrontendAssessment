@@ -4,10 +4,15 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+
 .search-bar {
   width: 97%;
   font-size: x-large;
   line-height: 2;
   border: 0px;
   border-bottom: 1px solid black;
+}
+
+.search-bar:focus {
+  outline: none;
 }

@@ -29,9 +29,9 @@ class App extends React.Component {
 
   render() {
     const {students, searchField} = this.state;
-    const filteredStudents = students.filter(student => {
-      return student.firstName.concat(' ', student.lastName).toLowerCase().includes(searchField.toLowerCase());
-    })
+    const filteredStudents = (!!(students.filter(student => {
+      return student.firstName.concat(' ', student.lastName).toLowerCase().includes(searchField.toLowerCase())})) ? students.filter(student => {
+      return student.firstName.concat(' ', student.lastName).toLowerCase().includes(searchField.toLowerCase())}) : students);
 
     return students.length === 0 ? <h1>Loading...</h1> : (
         <div className="App">

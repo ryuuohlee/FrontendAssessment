@@ -4,6 +4,7 @@
   flex-direction: column;
   margin: auto;
   height: 45em;
+  width: 100%;
   padding-top: 50px;
   overflow-y: hidden;
   background-color: white;
